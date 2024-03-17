@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager {  get; private set; }
 
-    public UnitHealth _playerHealth = new UnitHealth(100, 100);
+    //public UnitHealth _playerHealth = new UnitHealth(100, 100);
 
     
     // Start is called before the first frame update
