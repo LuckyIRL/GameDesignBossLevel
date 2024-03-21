@@ -24,13 +24,13 @@ public class CannonFire3D : MonoBehaviour
     void Update()
     {
         // Check if the player presses the "E" key and if it's time to fire
-        if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextFireTime)
-        {
-            Fire();
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextFireTime)
+       // {
+           // Fire();
+      //  }
     }
 
-    void Fire()
+    public void Fire()
     {
         // Play the fire sound effect
         if (audioSource != null && fireSound != null)
