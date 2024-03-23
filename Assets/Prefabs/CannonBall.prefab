@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerForce: 0.1
-  _explosionRadius: 20
+  _explosionRadius: 97
   _explosionForce: 3000
