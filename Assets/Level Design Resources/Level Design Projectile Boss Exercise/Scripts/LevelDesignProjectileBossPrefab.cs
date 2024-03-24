@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelDesignProjectileBossPrefab : MonoBehaviour
 {
+    public GameObject firePoint;
     public Transform playerPosition;
     public float projectileCooldown;
     public float projectileCount;
@@ -52,8 +53,8 @@ public class LevelDesignProjectileBossPrefab : MonoBehaviour
             //creates a new projectile
             GameObject projectile = Instantiate(projectilePrefab);
             //sets the projectile's position and rotation to the boss's position and rotation
-            projectile.transform.position = transform.position;
-            projectile.transform.rotation = transform.rotation;
+            projectile.transform.position = firePoint.transform.position;
+            projectile.transform.rotation = firePoint.transform.rotation;
             projectile.GetComponent<LevelDesignProjectilePrefab>().projectileSpeed = projectileSpeed;
             projectile.GetComponent<LevelDesignProjectilePrefab>().projectileImpactRadius = projectileImpactRadius;
             projectile.GetComponent<LevelDesignProjectilePrefab>().projectileLifetime = projectileLifetime;

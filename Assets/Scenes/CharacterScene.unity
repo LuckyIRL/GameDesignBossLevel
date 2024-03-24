@@ -2136,15 +2136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313501, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -135.86
+      value: -173.3
       objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313501, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -39.619995
+      value: -38.2
       objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313501, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 67.31001
+      value: -126.26
       objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313501, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -43659,6 +43659,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 591030800}
     m_Modifications:
     - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 2007457231}
+    - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: playerPosition
       value: 
       objectReference: {fileID: 463154146}
@@ -43668,7 +43672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: bossViewDistance
-      value: 69
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: projectileLifetime
@@ -43728,7 +43732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5183285278446897047, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: m_Radius
-      value: 0.21
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183285278446897047, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
+      propertyPath: m_Center.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5495086620811521553, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -43742,9 +43750,13 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afcbacc0e2d5016418bb395e7512b8ac, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5183285278446897047, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2269978844584567413, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2007457232}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6104165522818299756, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       insertIndex: -1
@@ -68682,6 +68694,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2700874171910072505, guid: 330efb0e9eed825408809c121441b8a5, type: 3}
   m_PrefabInstance: {fileID: 1670553745}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2007457231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2007457232}
+  m_Layer: 0
+  m_Name: Fire Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2007457232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007457231}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.779}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1337167273}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017160024
 GameObject:
   m_ObjectHideFlags: 0
