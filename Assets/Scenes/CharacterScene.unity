@@ -2633,7 +2633,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   exitedTrigger:
     m_PersistentCalls:
@@ -3489,7 +3489,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   exitedTrigger:
     m_PersistentCalls:
@@ -9346,7 +9346,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   exitedTrigger:
     m_PersistentCalls:
@@ -48129,20 +48129,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2007457231}
     - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
+      propertyPath: turnSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
+      propertyPath: fireCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: playerPosition
       value: 
       objectReference: {fileID: 463154146}
     - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: projectileSpeed
-      value: 15
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: bossViewDistance
       value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
+      propertyPath: projectileCooldown
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269110639757668911, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: projectileLifetime
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2269978844584567413, guid: 9a26ae0160f2440449839dccb625bc5c, type: 3}
       propertyPath: m_LocalScale.x
@@ -48838,7 +48850,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   exitedTrigger:
     m_PersistentCalls:
