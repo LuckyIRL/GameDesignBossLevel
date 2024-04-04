@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class Healthbar : MonoBehaviour
 {
     Slider _healthSlider;
 
@@ -20,6 +20,6 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        _healthSlider.maxValue = health;
+        _healthSlider.value = health;
     }
 }

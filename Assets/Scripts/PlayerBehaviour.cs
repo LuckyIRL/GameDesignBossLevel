@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] HealthBar _healthBar;
+    [SerializeField] Healthbar _healthbar;
     void Start()
     {
         
@@ -24,15 +24,15 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
     
-    private void PlayerTakeDmg(int dmg)
+    public void PlayerTakeDmg(int dmg)
     {
         GameManager.gameManager._playerHealth.DmgUnit(dmg);
-        _healthBar.SetHealth(GameManager.gameManager._playerHealth.Health);
+        _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
     }
 
-    private void PlayerHeal(int healing)
+    public void PlayerHeal(int healing)
     {
         GameManager.gameManager._playerHealth.HealUnit(healing);
-        _healthBar.SetHealth(GameManager.gameManager._playerHealth.Health);
+        _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
     }
 }
