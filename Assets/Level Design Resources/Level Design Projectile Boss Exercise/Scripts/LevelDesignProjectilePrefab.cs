@@ -33,7 +33,7 @@ public class LevelDesignProjectilePrefab : MonoBehaviour
             PlayerBehaviour playerBehaviour = other.GetComponent<PlayerBehaviour>();
             if (playerBehaviour != null)
             {
-                playerBehaviour.PlayerTakeDmg(10); // Adjust the damage value as needed
+                playerBehaviour.TakeDamage(10); // Adjust the damage value as needed
                 Debug.Log("Player Hit!");
             }
 
