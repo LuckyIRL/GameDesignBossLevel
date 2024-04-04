@@ -30,7 +30,7 @@ public class BossHealth : MonoBehaviour
 
     public void TakeDamage()
     {
-        _currentHealth -= 34;   
+        _currentHealth -= 10;   
         
         if(_currentHealth == 0)
         {
@@ -48,6 +48,15 @@ public class BossHealth : MonoBehaviour
         }
 
         onHealthChanged.Invoke();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CannonBall"))
+        {
+            TakeDamage();
+
+        }
     }
 
     public void BossDied()

@@ -20,7 +20,7 @@ public class Explosive : MonoBehaviour
                 var rb = obj.GetComponent<Rigidbody>();
                 if (rb == null) continue;
 
-                rb.AddExplosionForce(_explosionForce, transform.position, _explosionRadius, 1);
+                rb.AddExplosionForce(_explosionForce, transform.position, _explosionRadius, 5);
             }
 
             //Instantiate(_particles, transform.position, Quaternion.identity);
