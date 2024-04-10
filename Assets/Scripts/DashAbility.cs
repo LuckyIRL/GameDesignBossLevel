@@ -9,7 +9,7 @@ public class DashAbility : MonoBehaviour
 
     void Update()
     {
-        if (canDash && Input.GetKeyDown(KeyCode.LeftControl)) // Check for left CTRL key press
+        if (canDash && Input.GetKeyDown(KeyCode.Q)) // Check for left CTRL key press
         {
             StartCoroutine(Dash());
         }

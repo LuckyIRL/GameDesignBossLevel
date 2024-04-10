@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
+    private Animator animator;
     //Movement variables
     private Vector2 _input;
     private CharacterController _characterController;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _mainCamera = Camera.main;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -64,12 +66,13 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    private void ApplyMovement() 
+    private void ApplyMovement()
     {
         var targetSpeed = _movement.isSprinting ? _movement._speed * _movement._multiplier : _movement._speed;
         _movement._currentSpeed = Mathf.MoveTowards(_movement._currentSpeed, targetSpeed, _movement._acceleration * Time.deltaTime);
         
-        _characterController.Move(_direction * _movement._currentSpeed * Time.deltaTime);
+        _characterController.Move(_direction * _movement._currentSpeed * Time.deltaTime);  
+        Debug.Log(_movement._currentSpeed);
     }
 
 
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext context) 
     {
+;
         _movement.isSprinting = context.started || context.performed;
     }
 
