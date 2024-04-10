@@ -14,6 +14,7 @@ public class CannonShooting : MonoBehaviour
     public GameObject player;
     public GameObject cannonCamera;
     public GameObject exit_panel;
+    public GameObject playerSeat;
     
 
     public float force;
@@ -47,7 +48,12 @@ public class CannonShooting : MonoBehaviour
 
     public void ActivateCannon()
     {
-        cannonActive = true;          
+        cannonActive = true;
+        player.transform.position = playerSeat.transform.position;
+        player.SetActive(false);
+        playerCamera.SetActive(false);
+        cannonCamera.SetActive(true);
+        exit_panel.SetActive(true);
     }
 
     public void ExitCannon()
