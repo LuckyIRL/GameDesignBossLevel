@@ -25,7 +25,7 @@ public class BallDamage : MonoBehaviour
             }
 
             // Destroy the ball when it hits the player
-            Destroy(gameObject);
+            
         }
     }
 }
