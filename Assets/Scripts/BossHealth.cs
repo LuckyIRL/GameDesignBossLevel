@@ -15,6 +15,9 @@ public class BossHealth : MonoBehaviour
 
     public UnityEvent onHealthChanged;
 
+    public DoorController leftDoorController;
+    public DoorController rightDoorController;
+
     void Start()
     {
         _currentHealth = _maximumHealth;
@@ -24,26 +27,17 @@ public class BossHealth : MonoBehaviour
     {
         get
         {
-            return _currentHealth/_maximumHealth;
+            return _currentHealth / _maximumHealth;
         }
     }
 
     public void TakeDamage()
     {
-        _currentHealth -= 10;   
-        
-        if(_currentHealth == 0)
-        {
-            return;
-        }
+        _currentHealth -= 10;
 
-        if(_currentHealth < 0)
+        if (_currentHealth <= 0)
         {
             _currentHealth = 0;
-        }
-
-        if( _currentHealth == 0)
-        {
             OnBossDied.Invoke();
         }
 
@@ -55,14 +49,13 @@ public class BossHealth : MonoBehaviour
         if (other.CompareTag("CannonBall"))
         {
             TakeDamage();
-
         }
     }
 
     public void BossDied()
     {
-        return;
+        // Open both doors
+        leftDoorController.OpenDoor();
+        rightDoorController.OpenDoor();
     }
-
-
 }
