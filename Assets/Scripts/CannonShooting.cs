@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,7 @@ public class CannonShooting : MonoBehaviour
     public GameObject playerSeat;
     public PlayerBehaviour playerController;
     public float ammo;
+    public TextMeshProUGUI ammo_UI;
     
 
     public float force;
@@ -43,6 +45,7 @@ public class CannonShooting : MonoBehaviour
                 GameObject bullet = Instantiate(cannonBall, firePoint.position, firePoint.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * force * Time.deltaTime;
                 ammo -= 1;
+                ammo_UI.text = ammo.ToString();
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -73,5 +76,6 @@ public class CannonShooting : MonoBehaviour
     public void Add_Ammo()
     {
         ammo += 1;
+        ammo_UI.text = ammo.ToString();
     }
 }
