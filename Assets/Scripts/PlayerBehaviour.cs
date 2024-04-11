@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] Healthbar _healthbar;
+    public float cannon_balls_collected;
 
     void Start()
     {
@@ -29,5 +30,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         GameManager.gameManager._playerHealth.HealUnit(healing);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
+    }
+    public void lose_cannonball()
+    {
+        cannon_balls_collected -= 1;
     }
 }

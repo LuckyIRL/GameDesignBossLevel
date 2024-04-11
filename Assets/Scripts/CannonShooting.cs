@@ -15,29 +15,34 @@ public class CannonShooting : MonoBehaviour
     public GameObject cannonCamera;
     public GameObject exit_panel;
     public GameObject playerSeat;
+    public PlayerBehaviour playerController;
+    public float ammo;
     
 
     public float force;
     // Start is called before the first frame update
     void Start()
     {
+        ammo = 0;
         cannonActive = false;
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        if(cannonActive == true)
+        if (cannonActive == true)
         {
             Cursor.lockState = CursorLockMode.Locked;
             turn.x += Input.GetAxis("Mouse X");
             turn.y += Input.GetAxis("Mouse Y");
             transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && ammo >= 1)
             {
                 GameObject bullet = Instantiate(cannonBall, firePoint.position, firePoint.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * force * Time.deltaTime;
+                ammo -= 1;
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -63,5 +68,10 @@ public class CannonShooting : MonoBehaviour
         cannonCamera.SetActive(false);
         exit_panel.SetActive(false);
         cannonActive = false;
+    }
+
+    public void Add_Ammo()
+    {
+        ammo += 1;
     }
 }
