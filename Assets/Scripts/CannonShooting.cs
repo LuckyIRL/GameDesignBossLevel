@@ -19,12 +19,14 @@ public class CannonShooting : MonoBehaviour
     public PlayerBehaviour playerController;
     public float ammo;
     public TextMeshProUGUI ammo_UI;
+    private float overheat;
     
 
     public float force;
     // Start is called before the first frame update
     void Start()
     {
+        overheat = 0;
         ammo = 0;
         cannonActive = false;
         
@@ -46,12 +48,20 @@ public class CannonShooting : MonoBehaviour
                 bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * force * Time.deltaTime;
                 ammo -= 1;
                 ammo_UI.text = ammo.ToString();
+                overheat += 1;
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 ExitCannon();
             }
-        }       
+        }  
+        
+        if (overheat >= 6)
+        {
+            ExitCannon();
+            self_destruct();
+
+        }
     }
 
     public void ActivateCannon()
@@ -77,5 +87,10 @@ public class CannonShooting : MonoBehaviour
     {
         ammo += 1;
         ammo_UI.text = ammo.ToString();
+    }
+
+    public void self_destruct()
+    {
+        Destroy(gameObject);
     }
 }
