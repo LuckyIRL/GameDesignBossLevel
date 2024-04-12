@@ -48,7 +48,7 @@ public class CannonShooting : MonoBehaviour
                 bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * force * Time.deltaTime;
                 ammo -= 1;
                 ammo_UI.text = ammo.ToString();
-                overheat += 1;
+                //overheat += 1;
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
