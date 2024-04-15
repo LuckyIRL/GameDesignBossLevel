@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _maxNumberOfJumps = 2;
     [SerializeField] private float interactRange = 3f;
 
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         ApplyRotation();
         ApplyGravity();
         ApplyMovement();

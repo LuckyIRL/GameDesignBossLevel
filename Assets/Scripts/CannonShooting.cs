@@ -20,7 +20,7 @@ public class CannonShooting : MonoBehaviour
     public float ammo;
     public TextMeshProUGUI ammo_UI;
     private float overheat;
-    
+    public float overheat_limit;
 
     public float force;
     // Start is called before the first frame update
@@ -44,11 +44,7 @@ public class CannonShooting : MonoBehaviour
             transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
             if (Input.GetMouseButtonDown(0) && ammo >= 1)
             {
-                GameObject bullet = Instantiate(cannonBall, firePoint.position, firePoint.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * force * Time.deltaTime;
-                ammo -= 1;
-                ammo_UI.text = ammo.ToString();
-                //overheat += 1;
+                fire();                
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -56,7 +52,7 @@ public class CannonShooting : MonoBehaviour
             }
         }  
         
-        if (overheat >= 6)
+        if (overheat >= overheat_limit)
         {
             ExitCannon();
             self_destruct();
@@ -64,6 +60,14 @@ public class CannonShooting : MonoBehaviour
         }
     }
 
+
+    private void fire()
+    {
+        GameObject bullet = Instantiate(cannonBall, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * force * Time.deltaTime;
+        ammo -= 1;
+        ammo_UI.text = ammo.ToString();
+    }
     public void ActivateCannon()
     {
         cannonActive = true;
@@ -93,4 +97,10 @@ public class CannonShooting : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void add_overheat()
+    {
+        overheat += 1;
+    }
+    
 }

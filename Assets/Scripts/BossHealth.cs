@@ -33,7 +33,7 @@ public class BossHealth : MonoBehaviour
 
     public void TakeDamage()
     {
-        _currentHealth -= 10;
+        _currentHealth -= 6;
 
         if (_currentHealth <= 0)
         {

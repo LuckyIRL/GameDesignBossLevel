@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5824612650551059091}
   - component: {fileID: 3503166707341062299}
   - component: {fileID: 3843735061893472175}
+  - component: {fileID: 2527342877102021003}
   m_Layer: 0
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2934044041351090588}
+  - {fileID: 8788650725664439727}
   m_Father: {fileID: 1091671496137750540}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8429223133746281203
@@ -122,17 +124,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a0630df9c84434fa44bd8cedd863b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8
+  turn: {x: 0, y: 0}
+  _speed: 15
   _movement:
-    _speed: 5
+    _speed: 15
     _multiplier: 2
     _acceleration: 20
     isSprinting: 0
     _currentSpeed: 0
-  rotationSpeed: 500
+  rotationSpeed: 1000
   _gravityMultiplier: 3
-  _jumpPower: 5
+  _jumpPower: 6
   _maxNumberOfJumps: 2
+  interactRange: 3
 --- !u!143 &3843735061893472175
 CharacterController:
   m_ObjectHideFlags: 0
@@ -159,6 +163,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2527342877102021003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954806076678885316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f2f218baeeeb74baaad69298b16ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthbar: {fileID: 0}
+  cannon_balls_collected: 0
 --- !u!1 &2586040611654981619
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,13 +309,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3103439173345240945}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23156741, y: -0.00000001550764, z: 2.4786437e-10, w: 0.9728189}
-  m_LocalPosition: {x: 49.05213, y: 17.634596, z: 2.3807144}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 49.15, y: 14.31, z: 6.42}
+  m_LocalScale: {x: 0.51628894, y: 0.51628894, z: 0.51628894}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1091671496137750540}
-  m_LocalEulerAnglesHint: {x: 26.779, y: 0, z: 0}
+  m_Father: {fileID: 4146360057089080258}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7532674260981178587
 Camera:
   m_ObjectHideFlags: 0
@@ -364,7 +382,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3103439173345240945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77add2bb2cfa5c340ac44aa8c051bba8, type: 3}
   m_Name: 
@@ -499,6 +517,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5a022c9d-0ed8-4f13-a28e-815bd5648122
     m_ActionName: Gameplay/Sprint[/Keyboard/leftShift,/DualSenseGamepadHID/leftStickPress]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3503166707341062299}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 81588aee-fd78-472d-8d9b-db9426b371fe
+    m_ActionName: Gameplay/Action[/Keyboard/e,/DualSenseGamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3503166707341062299}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3e40c496-4b84-4a3a-8b71-df93009d9cae
+    m_ActionName: Gameplay/Quit[/Keyboard/q,/DualSenseGamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3503166707341062299}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ff3a9f87-0ffe-4c4d-bf9a-671f59f61f90
+    m_ActionName: Gameplay/Shoot[/Mouse/leftButton,/DualSenseGamepadHID/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -533,7 +599,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8788650725664439727}
   - {fileID: 4146360057089080258}
   - {fileID: 2434666048656930072}
   m_Father: {fileID: 0}
