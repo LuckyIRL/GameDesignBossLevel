@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Boss
   - CannonBall
+  - CinemachineTarget
+  - Ground
   layers:
   - Default
   - TransparentFX
