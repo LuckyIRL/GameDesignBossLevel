@@ -5,6 +5,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] public Healthbar _healthbar;
     public float cannon_balls_collected;
     private Vector3 startpointPos;
+    //private MeshRenderer playerMesh;
 
     void Start()
     {
@@ -22,6 +23,8 @@ public class PlayerBehaviour : MonoBehaviour
         // Check if player's health reaches zero
         if (GameManager.gameManager._playerHealth.Health <= 0)
         {
+            MeshRenderer playerMesh = GetComponent<MeshRenderer>();
+            //playerMesh.enabled = false;
             GameManager.gameManager.StartCoroutine(GameManager.gameManager.Respawn(.5f));
         }
     }
