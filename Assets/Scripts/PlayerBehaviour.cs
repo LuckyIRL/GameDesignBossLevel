@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] Healthbar _healthbar;
+    [SerializeField] public Healthbar _healthbar;
     public float cannon_balls_collected;
+    private Vector3 startpointPos;
 
     void Start()
     {
         // Set the initial health of the player in the health bar
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
+        startpointPos = transform.position;
     }
 
     // Method to take damage when hit by the boss
@@ -20,10 +22,12 @@ public class PlayerBehaviour : MonoBehaviour
         // Check if player's health reaches zero
         if (GameManager.gameManager._playerHealth.Health <= 0)
         {
-            // Call the RestartLevel method from GameManager if player's health is zero
-            GameManager.gameManager.RestartLevel();
+            GameManager.gameManager.StartCoroutine(GameManager.gameManager.Respawn(.5f));
         }
     }
+
+
+
 
     // Method to heal the player when collecting a health pickup
     public void Heal(int healing)

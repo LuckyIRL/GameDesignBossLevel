@@ -64,4 +64,14 @@ public class UnitHealth
             _currentHealth = _currentMaxHealth;
         }
     }
+
+    public void ResetHealth()
+    {
+        _currentHealth = _currentMaxHealth;
+    }
+
+    public void ResetMaxHealth()
+    {
+        _currentMaxHealth = 100;
+    }
 }
