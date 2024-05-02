@@ -16,7 +16,6 @@ public class CannonShooting : MonoBehaviour
     public GameObject cannonCamera;
     public GameObject exit_panel;
     public GameObject playerSeat;
-    public PlayerBehaviour playerController;
     public float ammo;
     public TextMeshProUGUI ammo_UI;
     private float overheat;
@@ -71,7 +70,7 @@ public class CannonShooting : MonoBehaviour
     public void ActivateCannon()
     {
         cannonActive = true;
-        player.transform.position = playerSeat.transform.position;
+        //player.transform.position = playerSeat.transform.position;
         player.SetActive(false);
         playerCamera.SetActive(false);
         cannonCamera.SetActive(true);
