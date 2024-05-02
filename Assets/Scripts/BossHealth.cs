@@ -15,8 +15,8 @@ public class BossHealth : MonoBehaviour
 
     public UnityEvent onHealthChanged;
 
-    public DoorController leftDoorController;
-    public DoorController rightDoorController;
+    public Animator leftDoorController;
+    public Animator rightDoorController;
 
     void Start()
     {
@@ -54,8 +54,9 @@ public class BossHealth : MonoBehaviour
 
     public void BossDied()
     {
-        // Open both doors
-        leftDoorController.OpenDoor();
-        rightDoorController.OpenDoor();
+        // Play the animation for the doors to open
+        leftDoorController.SetBool("Open", true);
+        rightDoorController.SetBool("Open", true);
+        
     }
 }
