@@ -16,6 +16,7 @@ namespace UnityEditor.Rendering.PostProcessing
         static Dictionary<Type, AttributeDecorator> s_AttributeDecorators;
 
         static PostProcessEffectSettings s_ClipboardContent;
+        public static bool isVREnabled;
 
         /// <summary>
         /// Returns <c>true</c> if the current target is a console, <c>false</c> otherwise.
