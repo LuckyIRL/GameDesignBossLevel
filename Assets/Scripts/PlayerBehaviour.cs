@@ -5,6 +5,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] public Healthbar _healthbar;
     public float cannon_balls_collected;
     private Vector3 startpointPos;
+    public bool is_dead;
 
 
     void Start()
@@ -15,19 +16,22 @@ public class PlayerBehaviour : MonoBehaviour
         startpointPos = transform.position;
     }
 
+    private void Update()
+    {
+        if (GameManager.gameManager._playerHealth.Health <= 0)
+        {
+            is_dead = true;
+            GameManager.gameManager._playerHealth.Health = 100;
+            _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
+        }
+    }
+
     // Method to take damage when hit by the boss
     public void TakeDamage(int damageAmount)
     {
         GameManager.gameManager._playerHealth.DmgUnit(damageAmount);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
         Debug.Log("Player Health: " + GameManager.gameManager._playerHealth.Health);
-
-        // Check if player's health reaches zero
-        if (GameManager.gameManager._playerHealth.Health <= 0)
-        {
-            GameManager.gameManager.StartCoroutine(GameManager.gameManager.Respawn(.5f));
-            Debug.Log("Player Respawned");
-        }
     }
 
 

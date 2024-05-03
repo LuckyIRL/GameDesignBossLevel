@@ -71,7 +71,7 @@ public class CannonShooting : MonoBehaviour
     {
         cannonActive = true;
         //player.transform.position = playerSeat.transform.position;
-        player.SetActive(false);
+        //player.SetActive(false);
         playerCamera.SetActive(false);
         cannonCamera.SetActive(true);
         exit_panel.SetActive(true);
@@ -79,7 +79,7 @@ public class CannonShooting : MonoBehaviour
 
     public void ExitCannon()
     {
-        player.SetActive(true);
+        //player.SetActive(true);
         playerCamera.SetActive(true);
         cannonCamera.SetActive(false);
         exit_panel.SetActive(false);

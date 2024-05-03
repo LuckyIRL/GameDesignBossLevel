@@ -33,7 +33,6 @@ public class LevelDesignProjectileBossPrefab : MonoBehaviour
         // Fires a raycast to the player of length bossViewDistance to check if the player is detected
         // Raycast is fired from the boss to the player
         RaycastHit hit;
-        Debug.Log("Firing Raycast");
         if (Physics.Raycast(transform.position, playerPosition.position - transform.position, out hit, bossViewDistance))
         {
             if (hit.transform.CompareTag("Player") && canFire)
