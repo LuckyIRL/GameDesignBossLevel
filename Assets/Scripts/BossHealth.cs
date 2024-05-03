@@ -67,8 +67,8 @@ public class BossHealth : MonoBehaviour
         
         
         // Play the animation for the doors to open
-        leftDoorController.SetBool("Open", true);
-        rightDoorController.SetBool("Open", true);
+        //leftDoorController.SetBool("Open", true);
+        //rightDoorController.SetBool("Open", true);
         // Play the particle effect
         //Instantiate(particle, transform.position, Quaternion.identity);
         // Play the explosion sound
