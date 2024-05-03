@@ -23,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
         // Check if player's health reaches zero
         if (GameManager.gameManager._playerHealth.Health <= 0)
         {
-            MeshRenderer playerMesh = GetComponent<MeshRenderer>();
+            //MeshRenderer playerMesh = GetComponent<MeshRenderer>();
             //playerMesh.enabled = false;
             GameManager.gameManager.StartCoroutine(GameManager.gameManager.Respawn(.5f));
         }
