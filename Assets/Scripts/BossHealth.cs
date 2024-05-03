@@ -12,9 +12,9 @@ public class BossHealth : MonoBehaviour
     private float _maximumHealth;
 
     public UnityEvent OnBossDied;
-    [SerializeField] public ParticleSystem particle;
-    [SerializeField] public AudioClip hitSound;
-    [SerializeField] public AudioClip explosion;
+    [SerializeField] public GameObject particle;
+    //[SerializeField] public AudioClip hitSound;
+    //[SerializeField] public AudioClip explosion;
 
     public UnityEvent onHealthChanged;
 
@@ -26,9 +26,9 @@ public class BossHealth : MonoBehaviour
         _currentHealth = _maximumHealth;
         leftDoorController = GameObject.Find("LeftDoor").GetComponent<Animator>();
         rightDoorController = GameObject.Find("RightDoor").GetComponent<Animator>();
-        particle = GameObject.Find("BossDeathParticles").GetComponent<ParticleSystem>();
-        explosion = GameObject.Find("Explosion").GetComponent<AudioClip>();
-        hitSound = GameObject.Find("HitSound").GetComponent<AudioClip>();
+        particle = GameObject.Find("BigExplosion");
+        //explosion = GameObject.Find("Explosion").GetComponent<AudioClip>();
+        //hitSound = GameObject.Find("HitSound").GetComponent<AudioClip>();
 
     }
 
@@ -58,7 +58,7 @@ public class BossHealth : MonoBehaviour
         if (other.CompareTag("CannonBall"))
         {
             TakeDamage();
-            AudioSource.PlayClipAtPoint(hitSound, transform.position);
+            //AudioSource.PlayClipAtPoint(hitSound, transform.position);
         }
     }
 
@@ -70,8 +70,8 @@ public class BossHealth : MonoBehaviour
         leftDoorController.SetBool("Open", true);
         rightDoorController.SetBool("Open", true);
         // Play the particle effect
-        Instantiate(particle, transform.position, Quaternion.identity);
+        //Instantiate(particle, transform.position, Quaternion.identity);
         // Play the explosion sound
-        AudioSource.PlayClipAtPoint(explosion, transform.position);
+        //AudioSource.PlayClipAtPoint(explosion, transform.position);
     }
 }

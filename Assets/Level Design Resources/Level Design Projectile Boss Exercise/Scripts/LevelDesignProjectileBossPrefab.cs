@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelDesignProjectileBossPrefab : MonoBehaviour
 {
-    public GameObject firePoint;
+    public Transform firePoint;
     public Transform playerPosition;
     public float projectileCooldown;
     public float projectileCount;
@@ -28,24 +28,29 @@ public class LevelDesignProjectileBossPrefab : MonoBehaviour
     void Update()
     {
         //faces the boss towards the player with turnSpeed controlling the rotation speed
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerPosition.position - transform.position, Vector3.up), turnSpeed * Time.deltaTime); 
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerPosition.position - transform.position, Vector3.up), turnSpeed * Time.deltaTime);
 
-        //fires a raycast to the player of length bossViewDistance to check if the player is detected
-        //raycast is fired from the boss to the player
+        // Fires a raycast to the player of length bossViewDistance to check if the player is detected
+        // Raycast is fired from the boss to the player
         RaycastHit hit;
+        Debug.Log("Firing Raycast");
         if (Physics.Raycast(transform.position, playerPosition.position - transform.position, out hit, bossViewDistance))
         {
-            if (hit.transform.tag == "Player" && canFire == true)
+            if (hit.transform.CompareTag("Player") && canFire)
             {
-                //if the player is detected, the boss will fire a projectile
+                // If the player is detected, the boss will fire a projectile
                 StartCoroutine(FireProjectile());
+
+                // Debug to check if raycast hits the player
+                Debug.Log("Hit Player");
             }
         }
-        
+
     }
     
     IEnumerator FireProjectile()
     {
+        Debug.Log("Firing Projectile Coroutine");
         canFire = false;
         //fires a projectileCount amount of projectiles
         for (int i = 0; i < projectileCount; i++)
@@ -64,5 +69,14 @@ public class LevelDesignProjectileBossPrefab : MonoBehaviour
         //waits for fireCooldown amount of time before the boss can fire again
         yield return new WaitForSeconds(fireCooldown);
         canFire = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, playerPosition.position - transform.position);
+        // Draw a sphere to show the bossViewDistance
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, bossViewDistance);
     }
 }
