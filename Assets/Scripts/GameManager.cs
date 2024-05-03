@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     private Vector3 checkpointPos;
     private Rigidbody playerRB;
     PlayerBehaviour playerBehaviour;
-    //MeshRenderer playerMesh;
 
     void Awake()
     {
@@ -31,7 +30,6 @@ public class GameManager : MonoBehaviour
         // Find the player's Rigidbody component
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
         playerBehaviour = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>();
-        //playerMesh = GameObject.FindGameObjectWithTag("Player").GetComponent<MeshRenderer>();
     }
 
     public void UpdateCheckpoint(Vector3 pos)
@@ -42,11 +40,6 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator Respawn(float delay)
     {
-        // enable the player's mesh renderer
-        //playerMesh.enabled = true;
-        // Disable the player's Rigidbody component
-        //playerRB.isKinematic = true;
-        // Wait for the delay time
         yield return new WaitForSeconds(delay);
         // Reset the player's health
         _playerHealth.Health = _playerHealth.MaxHealth;
@@ -54,7 +47,5 @@ public class GameManager : MonoBehaviour
         playerBehaviour._healthbar.SetHealth(_playerHealth.Health);
         // Set the player's position to the starting position
         GameObject.FindGameObjectWithTag("Player").transform.position = checkpointPos;
-        // Enable the player's Rigidbody component
-        //playerRB.isKinematic = false;
     }
 }

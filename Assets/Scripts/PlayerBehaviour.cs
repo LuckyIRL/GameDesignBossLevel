@@ -5,27 +5,28 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] public Healthbar _healthbar;
     public float cannon_balls_collected;
     private Vector3 startpointPos;
-    //private MeshRenderer playerMesh;
+
 
     void Start()
     {
         // Set the initial health of the player in the health bar
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
+        Debug.Log("Player Health: " + GameManager.gameManager._playerHealth.Health);
         startpointPos = transform.position;
     }
 
     // Method to take damage when hit by the boss
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int damageAmount)
     {
-        GameManager.gameManager._playerHealth.DmgUnit(dmg);
+        GameManager.gameManager._playerHealth.DmgUnit(damageAmount);
         _healthbar.SetHealth(GameManager.gameManager._playerHealth.Health);
+        Debug.Log("Player Health: " + GameManager.gameManager._playerHealth.Health);
 
         // Check if player's health reaches zero
         if (GameManager.gameManager._playerHealth.Health <= 0)
         {
-            //MeshRenderer playerMesh = GetComponent<MeshRenderer>();
-            //playerMesh.enabled = false;
             GameManager.gameManager.StartCoroutine(GameManager.gameManager.Respawn(.5f));
+            Debug.Log("Player Respawned");
         }
     }
 
