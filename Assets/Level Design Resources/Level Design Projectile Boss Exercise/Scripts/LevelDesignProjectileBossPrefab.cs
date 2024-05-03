@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelDesignProjectileBossPrefab : MonoBehaviour
 {
     public Transform firePoint;
-    public Transform playerPosition;
+    public GameObject playerPosition;
     public float projectileCooldown;
     public float projectileCount;
     public float fireCooldown;
